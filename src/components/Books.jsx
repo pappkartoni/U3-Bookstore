@@ -43,7 +43,7 @@ class Books extends Component {
                     <Row>
                         {this.state.books.map(b => {
                             return (
-                                b.title.includes(this.state.query) && <SingleBook book={b} />
+                                b.title.toLowerCase().includes(this.state.query) && <SingleBook book={b} />
                                 )
                         })}
                     </Row>

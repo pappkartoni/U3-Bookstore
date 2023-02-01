@@ -1,11 +1,6 @@
 
 #root {
   background-color: bisque;
-  min-height: 100vh;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .copyright {
@@ -61,5 +56,16 @@
 
 .card.selected {
   background-color: #829140;
-  outline: 2px solid #203617;
+  outline: 2px solid rgb(32, 54, 23);
+}
+
+.form-control {
+  background-color: transparent;
+  border-color: black;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgb(32 54 23 / 25%);
+  background-color: transparent;
+  border-color: black;
 }
