@@ -24,8 +24,8 @@ class Books extends Component {
             <section>
                 <Container className="mb-4">
                     <Row className="mb-3">
-                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "History", books: history})}}>History</Button>
                         <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Fantasy", books: fantasy})}}>Fantasy</Button>
+                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "History", books: history})}}>History</Button>
                         <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Horror", books: horror})}}>Horror</Button>
                         <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Romance", books: romance})}}>Romance</Button>
                         <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Scifi", books: scifi})}}>Scifi</Button>
