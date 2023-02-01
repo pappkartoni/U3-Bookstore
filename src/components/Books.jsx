@@ -5,7 +5,7 @@ import history from "../books/history.json"
 import horror from "../books/horror.json"
 import romance from "../books/romance.json"
 import scifi from "../books/scifi.json"
-import SingleBook from "./SingleBook"
+import BookList from "./BookList"
 
 class Books extends Component {
     state = {
@@ -16,7 +16,6 @@ class Books extends Component {
 
     filterBookList= (e) => {
         this.setState({...this.state, query: e.target.value})
-       /*  , books:  this.state.books.filter(b => {return b.title.includes(e.target.value)}) */
     }
 
     render() {
@@ -24,11 +23,11 @@ class Books extends Component {
             <section>
                 <Container className="mb-4">
                     <Row className="mb-3">
-                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Fantasy", books: fantasy})}}>Fantasy</Button>
-                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "History", books: history})}}>History</Button>
-                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Horror", books: horror})}}>Horror</Button>
-                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Romance", books: romance})}}>Romance</Button>
-                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({query: "", genre: "Scifi", books: scifi})}}>Scifi</Button>
+                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({...this.state, genre: "Fantasy", books: fantasy})}}>Fantasy</Button>
+                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({...this.state, genre: "History", books: history})}}>History</Button>
+                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({...this.state, genre: "Horror", books: horror})}}>Horror</Button>
+                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({...this.state, genre: "Romance", books: romance})}}>Romance</Button>
+                        <Button className="mx-3" variant="outline-dark" onClick={() => {this.setState({...this.state, genre: "Scifi", books: scifi})}}>Scifi</Button>
                     </Row>
                     <Row>
                         <Col>
@@ -38,27 +37,7 @@ class Books extends Component {
                         </Col>
                     </Row>
                 </Container>
-                <Container>
-                    <h2>{this.state.genre}</h2>
-                    <Row>
-                        {this.state.books.map(b => {
-                            return (
-                                b.title.toLowerCase().includes(this.state.query) && <SingleBook book={b} />
-                                )
-                        })}
-                    </Row>
-                </Container>
-                {/* <Col key={b.asin} xs={6} md={4} lg={3} className="mb-3">
-                    <Card>
-                        <Card.Img variant="top" src={b.img} />
-                        <Card.Body>
-                            <Card.Title title={b.title}>{b.title}</Card.Title>
-                            <Card.Text>
-                            {b.category} - {b.price.toFixed(2)}€
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col> */}
+                <BookList genre={this.state.genre} books={this.state.books.filter(b => b.title.toLowerCase().includes(this.state.query))}/>
             </section>
         )
     }
