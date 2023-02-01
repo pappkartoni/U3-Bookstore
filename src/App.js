@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import MyNav from "./components/MyNav"
+import MyFooter from "./components/MyFooter"
+import Jumbo from "./components/Jumbo"
+import Books from "./components/Books"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MyNav title="EpiBooks" navitems={["Home", "Browse", "About"]}/>
+      <Jumbo title="EpiBooks" description="lorem ipsum bla bla bla" />
+      <Books />
+      <MyFooter author="Flo"/>
     </div>
   );
 }

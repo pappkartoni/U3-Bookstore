@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root {
+  background-color: bisque;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.copyright {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  padding-block: 1rem;
+}
+
+.copyright:hover {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.jumbotron {
+  min-height: 40vh;
+  background-size: cover;
+  background-image: url("./jumbo.jpg");
+  color: white;
+}
+
+.jumbotron h1 {
+  font-size: 4.5rem;
+}
+
+.card {
+  height: 100%;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 125px;
+}
+
+.card .card-image-top {
+  margin-bottom: auto;
+}
+
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.bg-dark {
+  background-color: #2C1C10!important;
+}
+
+.card.selected {
+  background-color: #829140;
+  outline: 2px solid #203617;
 }
