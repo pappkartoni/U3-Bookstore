@@ -6,7 +6,7 @@ class SingleBook extends Component {
 
     render() {
         return (
-        <Col key={this.props.book.asin} xs={6} md={4} lg={3} className="mb-3">
+        <Col xs={6} md={4} lg={3} className="mb-3">
             <Card onClick={() => {this.setState({selected: !this.state.selected})}} className={this.state.selected ? "selected" : ""}>
                 <Card.Img variant="top" src={this.props.book.img} />
                 <Card.Body>

@@ -1,3 +1,19 @@
+body::-webkit-scrollbar-track
+{
+  display: none;
+}
+
+body::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: bisque;
+}
+
+body::-webkit-scrollbar-thumb
+{
+  background-color: #2C1C10;
+}
+
 
 #root {
   background-color: bisque;

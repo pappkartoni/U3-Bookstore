@@ -11,7 +11,7 @@ class BookList extends Component {
             <Row>
                 {this.props.books.map(b => {
                     return (
-                        <SingleBook book={b} />
+                        <SingleBook key={b.asin} book={b} />
                         )
                 })}
             </Row>
