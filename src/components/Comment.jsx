@@ -16,7 +16,6 @@ class Comment extends Component {
     }
 
     render() {
-        console.log(this.props.cmt)
         return (
             <ListGroup.Item className="d-flex flex-column">
                 <div className="d-flex align-items-center">
