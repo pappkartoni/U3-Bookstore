@@ -18,7 +18,6 @@ class AddComment extends Component {
             })
 
             if (res.ok) {
-                alert("comment recieved")
                 this.setState({
                     comment: "",
                     rate: "0",
