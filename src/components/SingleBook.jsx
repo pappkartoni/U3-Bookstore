@@ -12,7 +12,7 @@ class SingleBook extends Component {
                 <div className="card-img-wrapper">
                     <Card.Img variant="top" src={this.props.book.img} />
                 </div>
-                <Card.Body>
+                <Card.Body className="book-info">
                     <Card.Title title={this.props.book.title}>{this.props.book.title}</Card.Title>
                     <Card.Text>
                     {this.props.book.category} - {this.props.book.price.toFixed(2)}€

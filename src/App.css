@@ -52,9 +52,10 @@ body::-webkit-scrollbar-thumb
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-/*   max-height: 125px; */
 }
-
+.book-info {
+  height: 125px;
+}
 .card .card-image-top {
   height: 300px;
   margin-bottom: auto;
