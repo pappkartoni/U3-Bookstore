@@ -35,10 +35,10 @@ class CommentArea extends Component {
         return (
         <Card.Body>
              {this.state.isLoading && (
-                <Spinner animation="border" variant="success" />
+                <Spinner animation="border" variant="info" />
             )}
             {this.state.hasError && (
-                <Alert variant="danger">Aww snap, we got an error!😨</Alert>
+                <Alert variant="danger">You done fucked up</Alert>
             )}
             <CommentList comments={this.state.comments}/>
             <AddComment asin={this.props.id}/>
