@@ -4,7 +4,7 @@ import {Form, Button} from "react-bootstrap"
 class AddComment extends Component {
     state = {
         comment: "",
-        rate: "0",
+        rate: "1",
     }
 
     postComment = async () => {
@@ -20,7 +20,7 @@ class AddComment extends Component {
             if (res.ok) {
                 this.setState({
                     comment: "",
-                    rate: "0",
+                    rate: "1",
                 })
             }
         } catch (error) {
@@ -40,7 +40,7 @@ class AddComment extends Component {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Rating</Form.Label>
-                    <Form.Control required type="number" min="0" max="5" placeholder="score" value={this.state.rate} onChange={(e) => {this.setState({...this.state, rate: e.target.value})}} />
+                    <Form.Control required type="number" min="1" max="5" placeholder="score" value={this.state.rate} onChange={(e) => {this.setState({...this.state, rate: e.target.value})}} />
                 </Form.Group>
                 <Button type="submit" variant="outline-dark">Submit</Button>
             </Form>
