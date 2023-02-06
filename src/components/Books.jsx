@@ -49,7 +49,7 @@ class Books extends Component {
                         </Row>
                     </Container>
                 </div>
-                <Row className="mx-2">
+                <Row className="books mx-2">
                     <Col xs={12} md={9}>
                         <BookList selectBook={this.setSelectedBook} selectedBook={this.state.selectedBook} genre={this.state.genre} books={this.state.books.filter(b => b.title.toLowerCase().includes(this.state.query))}/>
                     </Col>

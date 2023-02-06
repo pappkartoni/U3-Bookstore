@@ -57,6 +57,18 @@ body::-webkit-scrollbar-thumb
   top: 165px;
 }
 
+@media (max-width: 767px) {
+  .books {
+    flex-direction: column-reverse;
+  }
+  .commentarea {
+    margin-inline: 0;
+    margin-bottom: 1rem;
+    outline: 1px solid red;
+    z-index: 2000;
+  }
+}
+
 .card {
 /*   height: 100%; */
   justify-content: space-between;

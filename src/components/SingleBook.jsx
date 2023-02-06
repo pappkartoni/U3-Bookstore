@@ -7,7 +7,7 @@ class SingleBook extends Component {
 
     render() {
         return (
-        <Col xs={6} md={4} lg={3} className="mb-3">
+        <Col xs={12} sm={6} md={4} lg={3} className="mb-3">
             <Card onClick={this.props.selectBook} className={this.props.selected === this.props.book.asin ? "selected" : ""}>
                 <div className="card-img-wrapper">
                     <Card.Img variant="top" src={this.props.book.img} />
