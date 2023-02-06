@@ -1,7 +1,7 @@
 import { Component } from "react";
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
-import {Spinner, Alert, Card} from "react-bootstrap"
+import {Spinner, Alert, Container} from "react-bootstrap"
 
 class CommentArea extends Component {
     state = {
@@ -26,23 +26,31 @@ class CommentArea extends Component {
     }
 
     componentDidMount() {
-        console.log("commentarea mounted")
         this.getComments()
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.id !== this.props.id) {
+            this.getComments()
+        }
+    }
+
     render() {
-        console.log("commentarea render")
         return (
-        <Card.Body>
+        <Container className="commentarea">
              {this.state.isLoading && (
                 <Spinner animation="border" variant="info" />
             )}
             {this.state.hasError && (
                 <Alert variant="danger">You done fucked up</Alert>
             )}
-            <CommentList comments={this.state.comments}/>
-            <AddComment asin={this.props.id}/>
-        </Card.Body>
+                <h2>Comments</h2>
+            {
+                this.props.id   ? <> {this.state.comments.length ? <CommentList comments={this.state.comments}/>: <Alert variant="warning">No comments yet</Alert>}
+                                    <AddComment asin={this.props.id} rerender={this.getComments}/></>
+                                :   "Please select a book to see the comments."
+            }
+        </Container>
         )
     }
 }

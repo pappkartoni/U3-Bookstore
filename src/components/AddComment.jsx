@@ -22,6 +22,7 @@ class AddComment extends Component {
                     comment: "",
                     rate: "1",
                 })
+                this.props.rerender()
             }
         } catch (error) {
             console.log(error)

@@ -6,12 +6,12 @@ class BookList extends Component {
 
     render() {
         return (
-        <Container>
+        <Container fluid>
             <h2>{this.props.genre}</h2>
             <Row>
                 {this.props.books.map(b => {
                     return (
-                        <SingleBook key={b.asin} book={b} />
+                        <SingleBook selectBook={() => {this.props.selectBook(b.asin)}} key={b.asin} book={b} selected={this.props.selectedBook}/>
                         )
                 })}
             </Row>

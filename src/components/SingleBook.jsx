@@ -1,6 +1,6 @@
 import {Component} from "react"
 import {Col, Card} from "react-bootstrap"
-import CommentArea from "./CommentArea"
+/* import CommentArea from "./CommentArea" */
 
 class SingleBook extends Component {
     state = {selected: false}
@@ -8,7 +8,7 @@ class SingleBook extends Component {
     render() {
         return (
         <Col xs={6} md={4} lg={3} className="mb-3">
-            <Card onClick={() => {this.setState({selected: !this.state.selected})}} className={this.state.selected ? "selected" : ""}>
+            <Card onClick={this.props.selectBook} className={this.props.selected === this.props.book.asin ? "selected" : ""}>
                 <div className="card-img-wrapper">
                     <Card.Img variant="top" src={this.props.book.img} />
                 </div>
@@ -18,7 +18,7 @@ class SingleBook extends Component {
                     {this.props.book.category} - {this.props.book.price.toFixed(2)}€
                     </Card.Text>
                 </Card.Body>
-                {this.state.selected && <CommentArea id={this.props.book.asin}/>}
+                {/* {this.state.selected && <CommentArea id={this.props.book.asin}/>} */}
             </Card>
         </Col>
         )

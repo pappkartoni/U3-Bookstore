@@ -36,10 +36,25 @@ body::-webkit-scrollbar-thumb
   background-size: cover;
   background-image: url("./jumbo.jpg");
   color: white;
+  margin-bottom: 0;
 }
 
 .jumbotron h1 {
   font-size: 4.5rem;
+}
+
+.searchbar {
+  padding-top: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: bisque;
+  border-bottom: 1px solid #212529aa;
+}
+
+.commentarea {
+  position: sticky;
+  top: 165px;
 }
 
 .card {
