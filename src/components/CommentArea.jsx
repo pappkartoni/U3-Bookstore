@@ -46,7 +46,7 @@ class CommentArea extends Component {
             )}
                 <h2>Comments</h2>
             {
-                this.props.id   ? <> {this.state.comments.length ? <CommentList comments={this.state.comments}/>: <Alert variant="warning">No comments yet</Alert>}
+                this.props.id   ? <> {this.state.comments.length ? <CommentList comments={this.state.comments} rerender={this.getComments}/>: <Alert variant="warning">No comments yet</Alert>}
                                     <AddComment asin={this.props.id} rerender={this.getComments}/></>
                                 :   "Please select a book to see the comments."
             }

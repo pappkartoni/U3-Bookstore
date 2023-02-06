@@ -4,11 +4,14 @@ import { ListGroup, Button } from "react-bootstrap";
 class Comment extends Component {
     deleteComment = async () => {
         try {
-            await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.cmt._id, {headers: {
+            const res = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.cmt._id, {headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5MzBmNmU3MzczODAwMTUzNzQzNzMiLCJpYXQiOjE2NzUzNDE1NzUsImV4cCI6MTY3NjU1MTE3NX0.WmNIWEtNArJGmqpfnbxs-o5HyEBAj95Z8nTAfVOr0_o"
             },
             method: "DELETE"
             })
+            if (res.ok) {
+                this.props.rerender()
+            }
         } catch (error) {
             console.log(error)
         }
@@ -22,7 +25,6 @@ class Comment extends Component {
                     <span className="font-weight-bold mr-1">{this.props.cmt.rate} / 5 </span>
                     <Button className="ml-auto" variant="danger" onClick={(e) => {
                         e.stopPropagation()
-                        e.target.closest(".list-group-item").remove()
                         this.deleteComment()
                     }}>X</Button>
                 </div>

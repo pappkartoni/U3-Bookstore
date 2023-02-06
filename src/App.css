@@ -57,6 +57,11 @@ body::-webkit-scrollbar-thumb
   top: 165px;
 }
 
+.commentarea .btn-danger {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
 @media (max-width: 767px) {
   .books {
     flex-direction: column-reverse;
