@@ -45,8 +45,8 @@ const CommentArea = (props) => {
         )}
             <h2>Comments</h2>
         {
-            props.id   ? <> {comments.length ? <CommentList comments={comments} rerender={getComments}/>: <Alert variant="warning">No comments yet</Alert>}
-                                <AddComment asin={props.id} rerender={getComments}/></>
+            props.id   ? <div className="smallWrapper"> {comments.length ? <CommentList comments={comments} rerender={getComments}/>: <Alert variant="warning">No comments yet</Alert>}
+                                <AddComment asin={props.id} rerender={getComments}/></div>
                             :   "Please select a book to see the comments."
         }
     </Container>

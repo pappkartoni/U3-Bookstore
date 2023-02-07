@@ -57,7 +57,7 @@ body::-webkit-scrollbar-thumb
   top: 165px;
 }
 
-.commentarea .btn-danger {
+.commentarea .btn {
   font-size: 12px;
   padding: 4px 8px;
 }
@@ -66,12 +66,37 @@ body::-webkit-scrollbar-thumb
   .books {
     flex-direction: column-reverse;
   }
-  .commentarea {
+  .searchbar {
+    margin-bottom: 0!important;
+  }
+  .commentAreaWrapper {
     margin-inline: 0;
     margin-bottom: 1rem;
-    outline: 1px solid red;
+    position: sticky;
+    top: 135px;
+    padding-block: 1.5rem;
+/*     outline: 1px solid red; */
     z-index: 2000;
     background-color: bisque;
+    font-size: 12px;
+    border-bottom: 1px solid #212529aa;
+  }
+  .commentAreaWrapper h2 {
+    font-size: 16px;
+  }
+  .commentAreaWrapper .list-group {
+    width: 50%;
+  }
+  .commentAreaWrapper .list-group-item {
+    padding: 5px 10px;
+  }
+  .smallWrapper {
+    display: flex;
+    justify-content: space-between;
+
+  }
+  .form-control {
+    font-size: 12px;
   }
   .jumbotron {
     display: none;
