@@ -1,28 +1,21 @@
-import {Component} from "react"
 import {Col, Card} from "react-bootstrap"
-/* import CommentArea from "./CommentArea" */
 
-class SingleBook extends Component {
-    state = {selected: false}
-
-    render() {
-        return (
-        <Col xs={12} sm={6} md={4} lg={3} className="mb-3">
-            <Card onClick={this.props.selectBook} className={this.props.selected === this.props.book.asin ? "selected" : ""}>
-                <div className="card-img-wrapper">
-                    <Card.Img variant="top" src={this.props.book.img} />
-                </div>
-                <Card.Body className="book-info">
-                    <Card.Title title={this.props.book.title}>{this.props.book.title}</Card.Title>
-                    <Card.Text>
-                    {this.props.book.category} - {this.props.book.price.toFixed(2)}€
-                    </Card.Text>
-                </Card.Body>
-                {/* {this.state.selected && <CommentArea id={this.props.book.asin}/>} */}
-            </Card>
-        </Col>
-        )
-    }
+const SingleBook = (props) => {
+    return (
+    <Col xs={12} sm={6} md={4} lg={3} className="mb-3">
+        <Card onClick={props.selectBook} className={props.selected === props.book.asin ? "selected" : ""}>
+            <div className="card-img-wrapper">
+                <Card.Img variant="top" src={props.book.img} />
+            </div>
+            <Card.Body className="book-info">
+                <Card.Title title={props.book.title}>{props.book.title}</Card.Title>
+                <Card.Text>
+                {props.book.category} - {props.book.price.toFixed(2)}€
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    </Col>
+    )
 }
 
 export default SingleBook

@@ -1,58 +1,56 @@
-import { Component } from "react";
+import { useState, useEffect } from "react";
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
 import {Spinner, Alert, Container} from "react-bootstrap"
 
-class CommentArea extends Component {
-    state = {
-        comments: [],
-        isLoading: true,
-        hasError: false
-    }
+const CommentArea = (props) => {
+    const [comments, setComments] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [hasError, setHasError] = useState(false)
 
-    getComments = async () => {
+    const getComments = async () => {
         try {
-            const res = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.id, {headers: {
+            const res = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + props.id, {headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5MzBmNmU3MzczODAwMTUzNzQzNzMiLCJpYXQiOjE2NzUzNDE1NzUsImV4cCI6MTY3NjU1MTE3NX0.WmNIWEtNArJGmqpfnbxs-o5HyEBAj95Z8nTAfVOr0_o"
                 }})
             if (res.ok) {
                 const data = await res.json()
-                this.setState({comments: data, isLoading: false})
+                setComments(data)
+                setIsLoading(false)
             }
         } catch (error) {
             console.log(error)
-            this.setState({isLoading: false, hasError: true})
+            setIsLoading(false)
+            setHasError(true)
         }
     }
 
-    componentDidMount() {
-        this.getComments()
-    }
+   useEffect(() => {
+    getComments()}, // eslint-disable-next-line react-hooks/exhaustive-deps 
+    []              // suddenly not so clean anymore
+   )
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.id !== this.props.id) {
-            this.getComments()
+    useEffect(() => {
+        getComments()}, // eslint-disable-next-line react-hooks/exhaustive-deps 
+        [props.id]
+    )
+
+    return (
+    <Container className="commentarea">
+            {isLoading && (
+            <Spinner animation="border" variant="info" />
+        )}
+        {hasError && (
+            <Alert variant="danger">You done fucked up</Alert>
+        )}
+            <h2>Comments</h2>
+        {
+            props.id   ? <> {comments.length ? <CommentList comments={comments} rerender={getComments}/>: <Alert variant="warning">No comments yet</Alert>}
+                                <AddComment asin={props.id} rerender={getComments}/></>
+                            :   "Please select a book to see the comments."
         }
-    }
-
-    render() {
-        return (
-        <Container className="commentarea">
-             {this.state.isLoading && (
-                <Spinner animation="border" variant="info" />
-            )}
-            {this.state.hasError && (
-                <Alert variant="danger">You done fucked up</Alert>
-            )}
-                <h2>Comments</h2>
-            {
-                this.props.id   ? <> {this.state.comments.length ? <CommentList comments={this.state.comments} rerender={this.getComments}/>: <Alert variant="warning">No comments yet</Alert>}
-                                    <AddComment asin={this.props.id} rerender={this.getComments}/></>
-                                :   "Please select a book to see the comments."
-            }
-        </Container>
-        )
-    }
+    </Container>
+    )
 }
 
 export default CommentArea
