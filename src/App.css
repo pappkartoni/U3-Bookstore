@@ -55,6 +55,12 @@ body::-webkit-scrollbar-thumb
 .commentarea {
   position: sticky;
   top: 165px;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.commentarea::-webkit-scrollbar {
+  display: none;
 }
 
 .commentarea .btn-danger {
