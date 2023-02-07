@@ -25,14 +25,9 @@ const CommentArea = (props) => {
         }
     }
 
-   useEffect(() => {
-    getComments()}, // eslint-disable-next-line react-hooks/exhaustive-deps 
-    []              // suddenly not so clean anymore
-   )
-
     useEffect(() => {
         getComments()}, // eslint-disable-next-line react-hooks/exhaustive-deps 
-        [props.id]
+        [props.id]      // i hate this need for comments
     )
 
     return (
