@@ -57,6 +57,7 @@ body::-webkit-scrollbar-thumb
   top: 165px;
   max-height: 80vh;
   overflow-y: scroll;
+  padding-bottom: 16px;
 }
 
 .commentarea::-webkit-scrollbar {
