@@ -9,8 +9,13 @@ const SingleBook = (props) => {
             </div>
             <Card.Body className="book-info">
                 <Card.Title title={props.book.title}>{props.book.title}</Card.Title>
-                <Card.Text>
-                {props.book.category} - {props.book.price.toFixed(2)}€
+                <Card.Text className="d-flex justify-content-between">
+                    <span className="text-capitalize text-muted">
+                        {props.book.category}
+                    </span>
+                    <span className="text-danger">
+                        {props.book.price.toFixed(2)}€
+                    </span>
                 </Card.Text>
             </Card.Body>
         </Card>
