@@ -168,6 +168,22 @@ body::-webkit-scrollbar-thumb
   padding:  1.25rem;
 }
 
+@media (max-width: 1460px) {
+  .card-img-wrapper {
+    height: 300px;
+  }
+}
+@media (max-width: 1100px) {
+  .card-img-wrapper {
+    height: 250px;
+  }
+}
+@media (max-width: 767px) {
+  .card-img-wrapper {
+    height: 350px;
+  }
+}
+
 .card-img-wrapper .card-img-top {
   object-fit: contain;
   max-height: 100%;
