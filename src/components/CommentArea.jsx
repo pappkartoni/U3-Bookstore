@@ -29,7 +29,7 @@ class CommentArea extends Component {
         this.getComments()
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps.id !== this.props.id) {
             this.getComments()
         }
