@@ -57,7 +57,7 @@ body::-webkit-scrollbar-thumb
   top: 165px;
 }
 
-.commentarea .btn {
+.commentarea .btn-danger {
   font-size: 12px;
   padding: 4px 8px;
 }
@@ -100,6 +100,10 @@ body::-webkit-scrollbar-thumb
   }
   .jumbotron {
     display: none;
+  }
+  .commentarea .btn-outline-dark {
+    font-size: 12px;
+    padding: 4px 8px;
   }
 }
 
